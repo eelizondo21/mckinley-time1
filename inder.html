@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>McKinley Packaging | Plant Time Dashboard</title>
+
+<style>
+
+body{
+font-family: "Segoe UI", Arial;
+margin:0;
+background:#eef1f5;
+color:#2c3e50;
+}
+
+.header{
+background:white;
+padding:25px;
+text-align:center;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.logo{
+height:60px;
+margin-bottom:10px;
+}
+
+.header h1{
+margin:0;
+font-size:28px;
+}
+
+.header p{
+margin-top:4px;
+color:#777;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+border-radius:12px;
+padding:20px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 18px rgba(0,0,0,0.12);
+}
+
+.location{
+font-size:17px;
+font-weight:600;
+margin-bottom:6px;
+}
+
+.address{
+font-size:13px;
+color:#888;
+margin-bottom:14px;
+}
+
+.time{
+font-size:32px;
+font-weight:700;
+color:#0077cc;
+}
+
+.footer{
+text-align:center;
+margin-top:30px;
+font-size:12px;
+color:#999;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<img src="logo.png" class="logo">
+
+<h1>McKinley Packaging</h1>
+<p>Plant Time Dashboard</p>
+
+</div>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+<div class="location">Lebanon / Atlanta</div>
+<div class="address">640 S State Road 39, IN 46052</div>
+<div class="time" id="atlanta"></div>
+</div>
+
+<div class="card">
+<div class="location">Covington / Georgia</div>
+<div class="address">14187 Industrial Park Blvd, GA 30374</div>
+<div class="time" id="covington"></div>
+</div>
+
+<div class="card">
+<div class="location">Santa Fe Springs / Los Angeles</div>
+<div class="address">13820 Mica St, CA 90670</div>
+<div class="time" id="losangeles"></div>
+</div>
+
+<div class="card">
+<div class="location">Port Angeles / Washington</div>
+<div class="address">1815 Marine Dr, WA 98363</div>
+<div class="time" id="portangeles"></div>
+</div>
+
+<div class="card">
+<div class="location">Prewitt / New Mexico</div>
+<div class="address">295 County Rd 19, NM 87045</div>
+<div class="time" id="newmexico"></div>
+</div>
+
+<div class="card">
+<div class="location">Green Bay / Wisconsin</div>
+<div class="address">540 Prospect St, WI 54113</div>
+<div class="time" id="wisconsin"></div>
+</div>
+
+<div class="card">
+<div class="location">Cerritos / Los Angeles</div>
+<div class="address">13012 Midway Place, CA 90703</div>
+<div class="time" id="cerritos"></div>
+</div>
+
+<div class="card">
+<div class="location">Lancaster / Dallas</div>
+<div class="address">1205 Pinto Rd, TX 75134</div>
+<div class="time" id="dallas"></div>
+</div>
+
+</div>
+
+<div class="footer">
+Live plant time zones • Automatically adjusted for daylight saving
+</div>
+
+</div>
+
+<script>
+
+function updateTime(){
+
+const options = {
+hour:'2-digit',
+minute:'2-digit',
+second:'2-digit',
+hour12:true
+};
+
+document.getElementById("atlanta").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/New_York"});
+
+document.getElementById("covington").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/New_York"});
+
+document.getElementById("losangeles").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/Los_Angeles"});
+
+document.getElementById("portangeles").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/Los_Angeles"});
+
+document.getElementById("newmexico").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/Denver"});
+
+document.getElementById("wisconsin").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/Chicago"});
+
+document.getElementById("cerritos").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/Los_Angeles"});
+
+document.getElementById("dallas").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/Chicago"});
+
+}
+
+setInterval(updateTime,1000);
+updateTime();
+
+</script>
+
+</body>
+
+</html>
