@@ -39,6 +39,15 @@ margin-top:4px;
 color:#777;
 }
 
+.local-time{
+text-align:center;
+font-size:16px;
+margin-top:10px;
+margin-bottom:25px;
+color:#555;
+font-weight:500;
+}
+
 .container{
 max-width:1200px;
 margin:auto;
@@ -102,6 +111,11 @@ color:#999;
 <h1>McKinley Packaging</h1>
 <p>Plant Time Dashboard</p>
 
+</div>
+
+<div class="local-time">
+Your Local Time (Mexico City – Bio Pappel HQ): 
+<span id="cdmx"></span>
 </div>
 
 <div class="container">
@@ -175,6 +189,9 @@ second:'2-digit',
 hour12:true
 };
 
+document.getElementById("cdmx").innerText =
+new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/Mexico_City"});
+
 document.getElementById("atlanta").innerText =
 new Date().toLocaleTimeString("en-US",{...options,timeZone:"America/New_York"});
 
@@ -207,6 +224,4 @@ updateTime();
 </script>
 
 </body>
-
 </html>
-
